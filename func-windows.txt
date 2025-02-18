@@ -1,0 +1,39 @@
+# To Describe All Instances
+function aws.describe {
+    aws ec2 describe-instances
+}
+
+# to Describe Instances with Specific Information (Formatted Output)
+function aws.des {
+    aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, Tags[?Key=='Name'].Value | [0], State.Name, PublicIpAddress]" --output table
+}
+
+# To Start, Stop or Reboot an Instance
+function aws.start {
+    param (
+        [string[]]$InstanceIds
+    )
+    aws ec2 start-instances --instance-ids $InstanceIds
+}
+
+function aws.stop {
+    param (
+        [string[]]$InstanceIds
+    )
+    aws ec2 stop-instances --instance-ids $InstanceIds
+}
+
+function aws.reboot {
+    param (
+        [string[]]$InstanceIds
+    )
+    aws ec2 reboot-instances --instance-ids $InstanceIds
+}
+
+# To Terminate an EC2 Instance(Use with Caution!)
+function aws.terminate {
+    param (
+        [string[]]$InstanceIds
+    )
+    aws ec2 terminate-instances --instance-ids $InstanceIds
+}

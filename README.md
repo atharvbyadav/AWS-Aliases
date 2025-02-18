@@ -172,7 +172,7 @@ function aws.start {
 ```
 - **Usage:**  
   ```powershell
-  aws.start -InstanceIds i-1234567890abcdef0
+  aws.start i-1234567890abcdef0
   ```
 - **Description:** Starts the specified EC2 instance.
 
@@ -189,7 +189,7 @@ function aws.stop {
 ```
 - **Usage:**  
   ```powershell
-  aws.stop -InstanceIds i-1234567890abcdef0
+  aws.stop i-1234567890abcdef0
   ```
 - **Description:** Stops the specified EC2 instance.
 
@@ -206,7 +206,7 @@ function aws.reboot {
 ```
 - **Usage:**  
   ```powershell
-  aws.reboot -InstanceIds i-1234567890abcdef0
+  aws.reboot i-1234567890abcdef0
   ```
 - **Description:** Reboots the specified EC2 instance.
 
@@ -223,7 +223,7 @@ function aws.terminate {
 ```
 - **Usage:**  
   ```powershell
-  aws.terminate -InstanceIds i-1234567890abcdef0
+  aws.terminate i-1234567890abcdef0
   ```
 - **Description:** Terminates the specified EC2 instance.
 

@@ -1,0 +1,8 @@
+alias aws.describe='aws ec2 describe-instances'
+alias aws.des='aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, Tags[?Key=='Name'].Value | [0], State.Name, PublicIpAddress]" --output table'
+
+alias aws.start='aws ec2 start-instances --instance-ids'
+alias aws.stop='aws ec2 stop-instances --instance-ids'
+alias aws.reboot='aws ec2 reboot-instances --instance-ids'
+alias aws.terminate='aws ec2 terminate-instances --instance-ids'
+

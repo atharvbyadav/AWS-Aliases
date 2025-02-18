@@ -234,5 +234,10 @@ function aws.terminate {
 
 ---
 
-## License  
-This repository is open-source. Feel free to modify and use these aliases as needed.
+## License
+
+This project is completely **free to use, modify, and share**. You can use these aliases and functions for personal, educational, or commercial purposes without any restrictions.  
+
+Feel free to improve or customize them to fit your workflow. Contributions and suggestions are always welcome!  
+
+If you find this useful, consider sharing it with others or giving it a ⭐ star on GitHub. Happy coding! 🚀

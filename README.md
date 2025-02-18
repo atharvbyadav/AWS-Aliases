@@ -21,13 +21,16 @@ This README.md file serves as a guide to using AWS CLI aliases for EC2 instance 
     4. [Stop an EC2 Instance](#4-stop-an-ec2-instance-1)
     5. [Reboot an EC2 Instance](#5-reboot-an-ec2-instance-1)
     6. [Terminate an EC2 Instance (Caution!)](#6-terminate-an-ec2-instance-caution-1)
-4. [How to Add These Aliases and Functions](#how-to-add-these-aliases-and-functions)
-5. [License](#license)
+4. [Handling Multiple Instances](#handling-multiple-instances)
+5. [How to Add These Aliases and Functions](#how-to-add-these-aliases-and-functions)
+6. [License](#license)
 
 ---
 
 ## Setup
 The following sections provide AWS CLI aliases for **Linux** and **Windows** environments. Choose the appropriate section based on your operating system.
+
+> **Note:** You can start, stop, reboot, or terminate multiple instances at once by providing multiple instance IDs separated by spaces (Linux) or commas (Windows). More details are provided at the end of this document.
 
 ---
 
@@ -245,6 +248,28 @@ function aws.terminate {
    ```powershell
    . $PROFILE
    ```
+
+---
+
+## Handling Multiple Instances
+
+You can manage multiple EC2 instances at the same time by passing multiple instance IDs:
+
+### **Linux (Bash/Zsh/Fish)**
+```bash
+aws.start i-1234567890abcdef0 i-0987654321fedcba0
+aws.stop i-1234567890abcdef0 i-0987654321fedcba0
+aws.reboot i-1234567890abcdef0 i-0987654321fedcba0
+aws_terminate i-1234567890abcdef0 i-0987654321fedcba0
+```
+
+### **Windows (PowerShell)**
+```powershell
+aws.start i-1234567890abcdef0, i-0987654321fedcba0
+aws.stop i-1234567890abcdef0, i-0987654321fedcba0
+aws.reboot i-1234567890abcdef0, i-0987654321fedcba0
+aws.terminate i-1234567890abcdef0, i-0987654321fedcba0
+```
 
 ---
 

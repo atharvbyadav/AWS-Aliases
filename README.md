@@ -13,6 +13,7 @@ This README.md file serves as a guide to using AWS CLI aliases for EC2 instance 
     4. [Stop an EC2 Instance](#4-stop-an-ec2-instance)
     5. [Reboot an EC2 Instance](#5-reboot-an-ec2-instance)
     6. [Terminate an EC2 Instance (Caution!)](#6-terminate-an-ec2-instance-caution)
+    7. [Terminate an EC2 Instance (Without Caution!)](#7-terminate-an-ec2-instance-without-caution)
 3. [Functions for Windows (PowerShell)](#functions-for-windows-powershell)
     1. [Describe All Instances](#1-describe-all-instances-1)
     2. [Describe Instances with Specific Information (Formatted Output)](#2-describe-instances-with-specific-information-formatted-output-1)
@@ -112,6 +113,19 @@ aws_terminate() {
   aws_terminate i-1234567890abcdef0
   ```
 - **Description:** Asks for confirmation before terminating an instance to prevent accidental deletions.
+
+---
+
+### **7. Terminate an EC2 Instance (Without Caution!)**  
+```bash
+alias aws.terminate='aws ec2 terminate-instances --instance-ids'
+
+```
+- **Usage:**  
+  ```bash
+  aws.terminate i-1234567890abcdef0
+  ```
+- **Description:** Does not asks for confirmation before terminating an instance.
 
 ---
 

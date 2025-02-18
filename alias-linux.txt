@@ -1,8 +1,19 @@
+# To Describe All Instances
 alias aws.describe='aws ec2 describe-instances'
+# to Describe Instances with Specific Information (Formatted Output)
 alias aws.des='aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, Tags[?Key=='Name'].Value | [0], State.Name, PublicIpAddress]" --output table'
 
+# To Start, Stop, Reboot or Terminate an Instance
 alias aws.start='aws ec2 start-instances --instance-ids'
 alias aws.stop='aws ec2 stop-instances --instance-ids'
 alias aws.reboot='aws ec2 reboot-instances --instance-ids'
-alias aws.terminate='aws ec2 terminate-instances --instance-ids'
 
+# To Terminate an EC2 Instance with a confirmation for Caution
+aws_terminate() {
+    echo "Are you sure you want to terminate instance $1? (yes/no)"
+    read confirm
+    [[ "$confirm" == "yes" ]] && aws ec2 terminate-instances --instance-ids "$1" || echo "Termination aborted."
+}
+
+# To Terminate an EC2 Instance without a confirmation
+alias aws.terminate='aws ec2 terminate-instances --instance-ids'

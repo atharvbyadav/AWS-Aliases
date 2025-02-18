@@ -10,11 +10,10 @@ This README.md file serves as a guide to using AWS CLI aliases for EC2 instance 
 2. [Aliases & Usage](#aliases--usage)
     1. [Describe All Instances](#1-describe-all-instances)
     2. [Describe Instances with Specific Information (Formatted Output)](#2-describe-instances-with-specific-information-formatted-output)
-    3. [List Running Instances Only](#3-list-running-instances-only)
-    4. [Start an EC2 Instance](#4-start-an-ec2-instance)
-    5. [Stop an EC2 Instance](#5-stop-an-ec2-instance)
-    6. [Reboot an EC2 Instance](#6-reboot-an-ec2-instance)
-    7. [Terminate an EC2 Instance (Caution!)](#7-terminate-an-ec2-instance-caution)
+    3. [Start an EC2 Instance](#3-start-an-ec2-instance)
+    4. [Stop an EC2 Instance](#4-stop-an-ec2-instance)
+    5. [Reboot an EC2 Instance](#5-reboot-an-ec2-instance)
+    6. [Terminate an EC2 Instance (Caution!)](#6-terminate-an-ec2-instance-caution)
 3. [How to Add These Aliases to Your Shell](#how-to-add-these-aliases-to-your-shell)
 4. [License](#license)
 
@@ -56,19 +55,7 @@ alias aws.des='aws ec2 describe-instances --query "Reservations[*].Instances[*].
 
 ---
 
-### **3. List Running Instances Only**  
-```bash
-alias aws.running='aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, State.Name, PublicIpAddress]" --filter "Name=instance-state-name,Values=running" --output table --no-cli-pager'
-```
-- **Usage:**  
-  ```bash
-  aws.running
-  ```
-- **Description:** Lists only running EC2 instances.
-
----
-
-### **4. Start an EC2 Instance**  
+### **3. Start an EC2 Instance**  
 ```bash
 alias aws.start='aws ec2 start-instances --instance-ids'
 ```
@@ -80,7 +67,7 @@ alias aws.start='aws ec2 start-instances --instance-ids'
 
 ---
 
-### **5. Stop an EC2 Instance**  
+### **4. Stop an EC2 Instance**  
 ```bash
 alias aws.stop='aws ec2 stop-instances --instance-ids'
 ```
@@ -92,7 +79,7 @@ alias aws.stop='aws ec2 stop-instances --instance-ids'
 
 ---
 
-### **6. Reboot an EC2 Instance**  
+### **5. Reboot an EC2 Instance**  
 ```bash
 alias aws.reboot='aws ec2 reboot-instances --instance-ids'
 ```
@@ -104,7 +91,7 @@ alias aws.reboot='aws ec2 reboot-instances --instance-ids'
 
 ---
 
-### **7. Terminate an EC2 Instance (Caution!)**  
+### **6. Terminate an EC2 Instance (Caution!)**  
 Instead of an alias, use a function to prevent accidental termination:
 
 ```bash
